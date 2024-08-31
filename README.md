@@ -1,6 +1,6 @@
 # User Profiles Selector
 
-When downpatching the game version, user profiles are reset. This mod allows you to set a custom folder for your profiles, preventing them from being overwritten.
+When changing the game version, user profiles are reset. This mod lets you set a custom folder for your profiles, making it easier to manage multiple game versions simultaneously.
 
 For downpatching, visit: [https://bage.cab/ror2/downpatch](https://bage.cab/ror2/downpatch).
 

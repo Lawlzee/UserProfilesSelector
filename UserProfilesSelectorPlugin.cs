@@ -29,8 +29,8 @@ namespace UserProfilesSelector
         {
             Log.Init(Logger);
 
-            ProfilesFolder = Config.Bind("Configuration", "User profiles folder", "UserProfiles2", "");
-            //ModSettingsManager.AddOption(new CheckBoxOption(ModEnabled));
+            ProfilesFolder = Config.Bind("Configuration", "User profiles folder", "UserProfiles2", "Choose the folder that stores the profiles. See C:\\Program Files (x86)\\Steam\\userdata\\<number>\\632360\\remote");
+            ModSettingsManager.AddOption(new StringInputFieldOption(ProfilesFolder));
 
             On.RoR2.SaveSystem.PlatformInitProfile += SaveSystem_PlatformInitProfile;
             On.RoR2.SaveSystem.LoadUserProfiles += SaveSystem_LoadUserProfiles;
@@ -60,7 +60,7 @@ namespace UserProfilesSelector
                 {
                     if (cloudStorage.FileExists(enumeratePath) && string.CompareOrdinal(enumeratePath.GetExtensionWithDot(), ".xml") == 0)
                     {
-                        LoadUserProfileOperationResult profileOperationResult = self.LoadUserProfileFromDisk((IFileSystem)cloudStorage, enumeratePath);
+                        LoadUserProfileOperationResult profileOperationResult = self.LoadUserProfileFromDisk(cloudStorage, enumeratePath);
                         UserProfile userProfile = profileOperationResult.userProfile;
                         if (userProfile != null)
                             self.loadedUserProfiles[userProfile.fileName] = userProfile;
@@ -77,7 +77,7 @@ namespace UserProfilesSelector
                 onAvailableUserProfilesChanged();
             }
             else
-                Debug.LogError((object)"cloud storage is null");
+                Debug.LogError("cloud storage is null");
         }
 
         private Texture2D LoadTexture(string name)
