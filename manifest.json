@@ -1,0 +1,12 @@
+﻿{
+  "name": "UserProfilesSelector",
+  "version_number": "1.0.0",
+  "website_url": "https://github.com/Lawlzee/UserProfilesSelector",
+  "displayName": "User Profiles Selector",
+  "description": "When downpatching the game version, user profiles are reset. This mod allows you to set a custom folder for your profiles, preventing them from being overwritten.",
+  "dependencies": [
+    "bbepis-BepInExPack-5.4.2108",
+    "RiskofThunder-HookGenPatcher-1.2.3",
+    "Rune580-Risk_Of_Options-2.7.0"
+  ]
+}
